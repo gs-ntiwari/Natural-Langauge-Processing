@@ -9,14 +9,12 @@ TRAIN_TIME_MINUTES=11
 
 class DatasetReader(object):
 
-    # TODO(student): You must implement this.
     @staticmethod
     def Tokenize(comment):
         """Receives a string (comment) and returns array of tokens."""
         words = comment.split(' ')
         return words
 
-    # TODO(student): You must implement this.
     @staticmethod
     def ReadFile(filename, term_index, tag_index):
         """Reads file into dataset, while populating term_index and tag_index.
@@ -59,7 +57,6 @@ class DatasetReader(object):
             parsed_sentences.append(parsed_line)
         return parsed_sentences
 
-    # TODO(student): You must implement this.
     @staticmethod
     def BuildMatrices(dataset):
         """Converts dataset [returned by ReadFile] into numpy arrays for tags, terms, and lengths.
@@ -197,18 +194,15 @@ class SequenceModel(object):
         you cannot set the range as described.
         """
         return tf.sequence_mask(length_vector, self.max_length, dtype=tf.float32)
-
-    # TODO(student): You must implement this.
+        
     def save_model(self, filename):
         """Saves model to a file."""
         pass
 
-    # TODO(student): You must implement this.
     def load_model(self, filename):
         """Loads model from a file."""
         pass
 
-    # TODO(student): You must implement this.
     def build_inference(self):
         """Build the expression from (self.x, self.lengths) to (self.logits).
 
@@ -244,7 +238,6 @@ class SequenceModel(object):
 
         return self.logits
 
-    # TODO(student): You must implement this.
     def run_inference(self, terms, lengths):
         """Evaluates self.logits given self.x and self.lengths.
 
@@ -265,7 +258,7 @@ class SequenceModel(object):
         model_output = self.session.run(self.logits, {self.x:terms, self.lengths: lengths})
         return numpy.argmax(model_output, axis=2)
 
-    # TODO(student): You must implement this.
+
     def build_training(self):
         """Prepares the class for training.
 
